@@ -1,0 +1,5 @@
+package chapter29;
+
+public class MessageMatcherException extends Exception {
+
+}

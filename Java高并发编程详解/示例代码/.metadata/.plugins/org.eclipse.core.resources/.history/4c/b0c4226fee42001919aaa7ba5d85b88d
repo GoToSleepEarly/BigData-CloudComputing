@@ -1,0 +1,28 @@
+package chapter23;
+
+public class CountDownLatch extends Latch{
+
+	
+	public CountDownLatch(int limit) {
+		super(limit);
+	}
+
+	@Override
+	public void await() throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void countDown() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getUnarrived() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

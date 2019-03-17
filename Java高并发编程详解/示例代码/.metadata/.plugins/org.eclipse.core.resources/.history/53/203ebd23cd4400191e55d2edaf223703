@@ -1,0 +1,15 @@
+package chapter27;
+
+import java.lang.reflect.Proxy;
+
+public class ActiveServiceFactory {
+	//定义ActiveMessageQueue，用于存放ActiveMessage
+	private final static ActiveMessageQueue queue = new ActiveMessageQueue();
+	
+	public static <T> active(T instance){
+		//生成Service代理类
+		Object proxy = Proxy.newProxyInstance(instance.getClass().getClassLoader(), instance.getClass().getInterfaces(), 
+				new ActiveInvocationHandler<>(instance));
+		return (T) proxy;
+	}
+}	

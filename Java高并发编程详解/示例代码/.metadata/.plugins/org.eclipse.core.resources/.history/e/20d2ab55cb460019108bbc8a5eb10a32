@@ -1,0 +1,74 @@
+package chapter29;
+
+
+
+import java.util.LinkedList;
+import java.util.Queue;
+ 
+ 
+ 
+ 
+class Event0 {
+ 
+    private final String type ;
+    private final String data ;
+ 
+    public Event0(String type , String data){
+        this.data = data ;
+        this.type = type ;
+    }
+ 
+    public String getType() {
+        return type;
+    }
+ 
+    public String getData() {
+        return data;
+    }
+}
+ 
+ 
+ 
+public class FooEventDrivenExample {
+ 
+ 
+ 
+ 
+    public static void  handleEventA(Event0 e){
+        System.out.println(e.getData() .toLowerCase() );
+    }
+ 
+ 
+ 
+    public static void  handleEventB(Event0 e){
+        System.out.println(e.getData().toUpperCase() );
+    }
+ 
+ 
+    public static void main(String[] args) {
+        Queue<Event> events = new LinkedList<>();
+        events.add(new Event0("A","Hello")) ;
+        events.add(new Event0("A","I am Event A")) ;
+ 
+        events.add(new Event0("B","I am Event B")) ;
+        events.add(new Event0("B","World")) ;
+ 
+        Event0 e ;
+ 
+        while( !events.isEmpty()){
+            e = events.remove() ;
+            switch (e.getType()){
+                case "A" :
+                    handleEventA(e);
+                    break;
+                case "B" :
+                    handleEventB(e);
+                    break;
+ 
+            }
+        }
+ 
+ 
+    }
+ 
+}

@@ -1,0 +1,11 @@
+package chapter29;
+
+public class Event implements Message{
+
+	@Override
+	public Class<? extends Message> getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

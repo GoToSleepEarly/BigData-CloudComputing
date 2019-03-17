@@ -1,0 +1,9 @@
+package chapter24;
+
+public class Opertator {
+	private final ThreadPool threadPool = new 
+	public void call(String business){
+		TaskHandler th = new TaskHandler(new Request(business));
+		new Thread(th).start();
+	}
+}

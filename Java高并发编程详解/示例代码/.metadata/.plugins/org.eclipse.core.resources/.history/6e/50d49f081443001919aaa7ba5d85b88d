@@ -1,0 +1,10 @@
+package chapter25;
+
+public class CacheLoader<K, V> {
+
+	public V load(K key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

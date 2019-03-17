@@ -1,0 +1,7 @@
+package chapter24;
+
+public class Opertator {
+	public void call(String business){
+		TaskHandler th = new TaskHandler(new Request(business));
+	}
+}

@@ -1,0 +1,12 @@
+package chapter23;
+
+public abstract class Latch {
+	//用于控制多少个线程完成时会打开阀门
+	protected int limit;
+	
+	//通过构造函数传入limit
+	public Latch(int limit){
+		this.limit = limit;
+	}
+	
+}

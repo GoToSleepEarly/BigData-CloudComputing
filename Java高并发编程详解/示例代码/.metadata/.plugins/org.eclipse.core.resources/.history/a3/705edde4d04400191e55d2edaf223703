@@ -1,0 +1,10 @@
+package chapter27;
+
+public class ActiveObjectsTest {
+
+	public static void main(String[] args) {
+		OrderService orderService = ActiveServiceFactory.active(new OrderServiceImpl());
+		
+	}
+
+}

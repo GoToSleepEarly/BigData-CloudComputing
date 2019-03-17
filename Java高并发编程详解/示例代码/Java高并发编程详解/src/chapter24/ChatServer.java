@@ -1,0 +1,54 @@
+package chapter24;
+
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import chapter08.BasicThreadPool;
+import chapter08.ThreadPool;
+ 
+public class ChatServer {
+ 
+	//服务端接口
+    private final int port ;
+    
+    //线程池
+    private ThreadPool threadPool ;
+    
+    //服务端socket
+    private ServerSocket serverSocket ;
+ 
+    public ChatServer(int port){
+        this.port = port ;
+    }
+ 
+    //默认8888
+    public ChatServer(){
+        this.port = 8888 ;
+    }
+ 
+    public void startServer() throws IOException{
+ 
+        this.threadPool = new BasicThreadPool(1,4,2,1000) ;
+ 
+        this.serverSocket = new ServerSocket(port) ;
+ 
+        this.serverSocket.setReuseAddress(true);
+ 
+        System.out.println("Chat server is start and listen at port : "+port);
+ 
+        this.listen();
+ 
+ 
+    }
+ 
+    private void listen() throws IOException {
+        for (;;){
+            Socket client  = serverSocket.accept() ;
+            this.threadPool.execute(new ChatHandler(client));
+        }
+    }
+ 
+ 
+}

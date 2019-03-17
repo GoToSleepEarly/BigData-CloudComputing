@@ -1,0 +1,18 @@
+package chapter27;
+
+import java.util.LinkedList;
+
+public class ActiveMessageQueue {
+	
+	//用于存放提交的MethodMessage方法
+	private final LinkedList<MethodMessage> messages = new LinkedList<>();
+	
+	public ActiveMessageQueue(){
+		//启动worker线程
+		new ActiveDaemonThread(this).start();
+	}
+	
+	public void offer(MethodMessage methodMessage){
+		
+	}
+}

@@ -1,0 +1,7 @@
+package chapter24;
+
+public class Request {
+	private final String business;
+	
+	
+}

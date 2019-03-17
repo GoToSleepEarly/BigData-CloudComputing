@@ -1,0 +1,7 @@
+package chapter25;
+
+public class Reference {
+	
+	private final byte[] data = new byte[2 << 19];
+	
+}

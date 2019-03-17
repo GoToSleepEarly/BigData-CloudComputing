@@ -1,0 +1,6 @@
+package chapter27;
+
+//包可见，ActiveMessage只能在框架内使用，不会对外暴露
+class ActiveMessage {
+
+}

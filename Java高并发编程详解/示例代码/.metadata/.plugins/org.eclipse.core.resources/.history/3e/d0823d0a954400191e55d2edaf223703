@@ -1,0 +1,11 @@
+package chapter27;
+
+public class ActiveDaemonThread extends Thread {
+
+		private final ActiveMessageQueue queue;
+		
+		public ActiveDaemonThread(ActiveMessageQueue queue){
+			super("ActiveDaemonThread");
+			
+		}
+}

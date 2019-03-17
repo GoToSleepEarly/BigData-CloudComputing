@@ -1,0 +1,19 @@
+package chapter27;
+
+import chapter19.Future;
+
+public class OrderServiceProxy implements OrderService{
+
+	@Override
+	public Future<String> findOrderDetails(long orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void order(String account, long orderId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

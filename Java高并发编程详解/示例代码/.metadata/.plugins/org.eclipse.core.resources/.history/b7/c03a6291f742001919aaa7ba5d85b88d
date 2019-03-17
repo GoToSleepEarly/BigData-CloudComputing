@@ -1,0 +1,11 @@
+package chapter24;
+
+import java.util.concurrent.ThreadPoolExecutor;
+
+public class Opertator {
+	private final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2, 6, 4, null, 1000)
+	public void call(String business){
+		TaskHandler th = new TaskHandler(new Request(business));
+		new Thread(th).start();
+	}
+}

@@ -1,0 +1,29 @@
+ 
+public class ActionContext2 {
+    private static final ThreadLocal<Configuration> configuration = ThreadLocal.withInitial(Configuration::new) ;
+ 
+    private static final ThreadLocal<OtherResource> otherResource = ThreadLocal.withInitial(OtherResource::new) ;
+ 
+ 
+    public Configuration getConfiguration(){
+        return configuration.get() ;
+    }
+ 
+    public void setConfiguration(Configuration conf){
+        configuration.set(conf) ;
+    }
+ 
+ 
+    public OtherResource getOtherResource(){
+        return otherResource.get();
+    }
+ 
+    public void setOtherResource(OtherResource oResource){
+        otherResource.set(oResource) ;
+    }
+    
+}
+ 
+ 
+class Configuration {}
+class OtherResource {}

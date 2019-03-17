@@ -1,0 +1,14 @@
+package chapter07;
+
+public class CaptureThreadException {
+
+	public static void main(String[] args) {
+		Thread.setDefaultUncaughtExceptionHandler((t,e) -> {
+			System.out.println(t.getName() +"³öÏÖÒì³£");
+			e.printStackTrace();
+		}) ;
+		
+		
+	}
+
+}

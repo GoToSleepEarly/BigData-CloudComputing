@@ -1,0 +1,17 @@
+package chapter27;
+
+import chapter19.Future;
+
+public class ActiveObjectsTest {
+	@Deprecated
+	public void DeprecatedMethod() {
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		OrderService orderService = ActiveServiceFactory.active(new OrderServiceImpl());
+		Future<String> future = orderService.findOrderDetails(2343);
+		System.out.println("Á¢Âí·µ»Ø£¡");
+		System.out.println(future.get());
+	}
+
+}

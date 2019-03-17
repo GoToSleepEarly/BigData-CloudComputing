@@ -1,0 +1,5 @@
+package chapter27;
+
+public class IllegalActiveMethod extends Exception{
+
+}

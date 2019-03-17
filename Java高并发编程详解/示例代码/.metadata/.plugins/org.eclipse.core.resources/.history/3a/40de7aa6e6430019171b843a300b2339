@@ -1,0 +1,22 @@
+package chapter27;
+
+import chapter19.Future;
+import chapter19.FutureService;
+
+public class OrderServiceImpl implements OrderService{
+
+	@Override
+	public Future<String> findOrderDetails(long orderId) {
+		//使用Future来返回结果
+		return FutureService.newService().submit(input -> {
+			
+		})
+	}
+
+	@Override
+	public void order(String account, long orderId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

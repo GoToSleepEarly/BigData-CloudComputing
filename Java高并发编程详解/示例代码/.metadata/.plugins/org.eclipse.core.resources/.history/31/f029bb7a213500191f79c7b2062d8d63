@@ -1,0 +1,15 @@
+package chapter07;
+
+public class CaptureThreadException {
+
+	public static void main(String[] args) {
+		//函数式接口可用lambda表达式实现。】
+		Thread.setDefaultUncaughtExceptionHandler((t,e) -> {
+			System.out.println(t.getName() +"出现异常");
+			e.printStackTrace();
+		}) ;
+		
+		
+	}
+
+}

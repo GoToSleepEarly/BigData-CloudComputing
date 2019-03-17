@@ -1,0 +1,11 @@
+package chapter27;
+
+public class OrderMessage extends MethodMessage {
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

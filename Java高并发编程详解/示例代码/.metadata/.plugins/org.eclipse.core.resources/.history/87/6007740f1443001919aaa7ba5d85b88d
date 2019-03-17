@@ -1,0 +1,11 @@
+package chapter25;
+
+@FunctionalInterface
+public interface CacheLoader<K, V> {
+
+	public V load(K key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

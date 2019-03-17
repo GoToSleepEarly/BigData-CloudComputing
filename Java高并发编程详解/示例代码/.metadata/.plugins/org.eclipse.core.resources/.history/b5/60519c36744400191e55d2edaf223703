@@ -1,0 +1,18 @@
+package chapter27;
+
+import java.util.Map;
+
+public class FindOrderDetailMessage extends MethodMessage {
+
+	public FindOrderDetailMessage(Map<String, Object> params, OrderService orderService) {
+		super(params, orderService);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

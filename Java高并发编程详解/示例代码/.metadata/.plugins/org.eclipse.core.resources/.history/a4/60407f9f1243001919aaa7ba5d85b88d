@@ -1,0 +1,17 @@
+package chapter25;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+import javax.print.attribute.HashAttributeSet;
+
+public class LRUCache<K,V> {
+	//用于纪录key值的顺序
+	private final LinkedList<K> keyList = new LinkedList<>();
+	
+	//用于存放数据
+	private final Map<K,V> cache  = new HashMap<>();
+	
+	
+}

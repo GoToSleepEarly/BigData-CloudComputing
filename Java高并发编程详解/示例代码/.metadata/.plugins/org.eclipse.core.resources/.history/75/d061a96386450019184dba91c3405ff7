@@ -1,0 +1,9 @@
+
+public class Test {
+	@Hello("hello")
+	public static void main(String[] args) throws NoSuchMethodError{
+		Class cls = Test.class;
+		Method method = cls.getMethod("main", String[].class);
+		
+	}
+}

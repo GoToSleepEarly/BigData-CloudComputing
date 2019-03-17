@@ -1,0 +1,5 @@
+package chapter29;
+
+public class Event implements Message{
+	
+}

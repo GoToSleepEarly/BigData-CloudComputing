@@ -1,0 +1,10 @@
+package chapter25;
+
+import java.util.LinkedList;
+
+public class LRUCache<K,V> {
+	//用于纪录key值的顺序
+	private final LinkedList<K> keyList = new LinkedList<>();
+	
+	
+}

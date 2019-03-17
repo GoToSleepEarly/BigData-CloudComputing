@@ -1,0 +1,9 @@
+package chapter25;
+
+public class WeakReferenceTest {
+
+	public static void main(String[] args) {
+		Reference ref = new Reference();
+	}
+
+}

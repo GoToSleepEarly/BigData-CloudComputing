@@ -1,0 +1,11 @@
+package chapter27;
+
+import java.util.Map;
+
+public class MethodMessage {
+	
+	//收集方法参数，如果返回Future类型则一并收集
+	protected final Map<String, Object> params;
+	
+	
+}

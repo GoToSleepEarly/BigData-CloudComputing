@@ -1,0 +1,28 @@
+package ×¢½âÔ­Àí;
+
+import java.awt.List;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class AABB {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		LinkedList<String> list = new LinkedList<String>();
+		for(int i =0;i<n;i++){
+			list.add(in.next());
+		}
+		
+		for(String x : list){
+			Pattern pattern = Pattern.compile("//(//d{3}//)");
+			Matcher matcher = pattern.matcher(x);
+			if(matcher.find()){
+				System.out.println(matcher.group(group));
+			}
+		}
+	}
+
+}

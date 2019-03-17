@@ -1,0 +1,20 @@
+package chapter07;
+
+import java.util.concurrent.TimeUnit;
+
+public class CaptureThreadException {
+
+	public static void main(String[] args) {
+		//函数式接口可用lambda表达式实现
+		Thread.setDefaultUncaughtExceptionHandler((t,e) -> {
+			System.out.println(t.getName() +"出现异常");
+			e.printStackTrace();
+		}) ;
+		
+		final Thread thread = new Thread( () ->{
+			TimeUnit.SECONDS.sleep(2);
+		},"Test-Thread");
+		
+	}
+
+}

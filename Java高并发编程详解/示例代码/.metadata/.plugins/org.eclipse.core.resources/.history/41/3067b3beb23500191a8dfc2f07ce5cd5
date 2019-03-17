@@ -1,0 +1,26 @@
+package chapter08;
+
+public interface ThreadPool {
+	
+	//提交任务到线程
+	void execute(Runnable runnable);
+
+	//关闭线程池
+	
+	//获取线程池的初始化大小
+	
+	//获取线程池最大的线程数
+	
+	//获取线程池的核心线程数量
+	
+	//获取线程池中用于缓存任务队列的大小
+	
+	//获取线程池中活跃线程的数量
+	
+	//查看线程池是否已被shutdown
+
+
+
+
+
+}

@@ -1,0 +1,71 @@
+package chapter23;
+
+import java.util.concurrent.TimeUnit;
+
+public class CountDownLatch extends Latch{
+
+	private Runnable runnable ;
+	
+	public CountDownLatch(int limit) {
+		super(limit);
+	}
+
+	 // 增加回调功能
+    public CountDownLatch(int limit , Runnable runnable) {
+        super(limit);
+        this.runnable = runnable ;
+    }
+
+	@Override
+	public void await() throws InterruptedException {
+		synchronized (this) {
+			//当limit>0时，当前线程进入阻塞
+			while(limit > 0){
+				this.wait();
+			}
+			if(null != runnable){
+	            runnable.run();
+	        }
+
+		}
+	}
+
+	@Override
+	public void countDown() {
+		synchronized (this) {
+			if(limit<=0){
+				throw new IllegalStateException("所有任务已经完成");
+			}
+			//使limit-1，并通知阻塞线程
+			limit--;
+			this.notifyAll();
+		}
+	}
+
+	@Override
+	public int getUnarrived() {
+		return limit;
+	}
+
+	@Override
+	public void await(TimeUnit unit, long time) throws InterruptedException, WatiTimeoutException {
+		if(time <= 0){
+			throw new IllegalArgumentException("时间参数错误");
+		}
+		//时间转换
+		long remainingNanos = unit.toNanos(time);
+		final long endNans = System.nanoTime() + remainingNanos;
+		synchronized (this) {
+			while(limit > 0){
+				//如果超时则抛出异常
+				if(TimeUnit.NANOSECONDS.toMillis(remainingNanos) <= 0){
+					throw new  WatiTimeoutException("等待超时");
+				}
+				//等待remainingNanos，可能被中断，重新计算
+				this.wait(TimeUnit.NANOSECONDS.toMillis(remainingNanos));
+				remainingNanos = endNans - System.nanoTime();
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,19 @@
+package chapter24;
+
+import java.lang.ref.ReferenceQueue;
+import java.net.Socket;
+
+public class SocketCleaningTracker {
+
+	//∂®“ÂReferenceQueue
+	private static final ReferenceQueue<Object> queue = new ReferenceQueue<>();
+	
+	static{
+		new Cleanner().start();
+	}
+	public static void tracker(Socket socket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

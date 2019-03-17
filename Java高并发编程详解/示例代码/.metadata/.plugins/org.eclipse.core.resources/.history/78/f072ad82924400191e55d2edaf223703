@@ -1,0 +1,17 @@
+package chapter27;
+
+import java.util.Map;
+
+public class OrderMessage extends MethodMessage {
+
+	public OrderMessage(Map<String, Object> params, OrderService orderService) {
+		super(params, orderService);
+	}
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

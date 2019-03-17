@@ -1,0 +1,36 @@
+package 注解原理;
+
+import java.util.Scanner;
+
+public class AABB {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n= in.nextInt();
+		for(int i = 0; i < n; i++){
+			int total = in.nextInt();
+			int[] score = new int[total];
+			int minValue = Integer.MAX_VALUE;
+			int minIndex = 0;
+			for(int j =0; i < total; j++){
+				score[j] =in.nextInt();
+				if(score[j] < minValue){
+					minIndex = j;
+				}
+			}
+			//数据输入完毕
+			int temp = minIndex;
+			int[] gift = new int[total];
+			gift[temp] = 1;
+			temp++;
+			while(temp != minIndex){
+				if(score[temp]>score[temp+1] && 
+						score[temp]>score[temp-1]){
+					gift[temp] = Math.min(gift[temp+1], gift[temp-1])+1; 
+				}
+				
+			}
+		}
+	}
+
+}

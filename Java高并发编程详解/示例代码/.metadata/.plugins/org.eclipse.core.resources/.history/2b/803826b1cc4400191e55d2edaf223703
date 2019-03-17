@@ -1,0 +1,6 @@
+package chapter27;
+
+public class ActiveServiceFactory {
+	//定义ActiveMessageQueue，用于存放ActiveMessage
+	private final static ActiveMessageQueue queue = new ActiveMessageQueue();
+}	

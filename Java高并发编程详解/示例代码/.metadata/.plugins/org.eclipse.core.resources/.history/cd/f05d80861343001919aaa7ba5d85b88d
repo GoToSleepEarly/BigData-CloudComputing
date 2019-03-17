@@ -1,0 +1,39 @@
+package chapter25;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+
+public class LRUCache<K,V> {
+	//用于纪录key值的顺序
+	private final LinkedList<K> keyList = new LinkedList<>();
+	
+	//用于存放数据
+	private final Map<K,V> cache  = new HashMap<>();
+	
+	//cache的最大容量
+	private final int capacity;
+	
+	//cacheLoader接口提供了一种加载数据的方式
+	private final CacheLoader<K,V> cacheLoader;
+	
+	public LRUCache(int capacity, CacheLoader<K, V> cacheLoader){
+		this.capacity = capacity;
+		this.cacheLoader = cacheLoader;
+	}
+	
+	public void put(K key, V value){
+		//当元素数量超过容量时，将最老的数据清除
+		if(keyList.size() >= capacity){
+			K eldestKey = keyList.removeFirst();
+			cache.remove(eldestKey);
+		}
+		//如果数据已存在，则从key队列删除
+		if(keyList.contains(key))
+			keyList.remove(key);
+		keyList.addLast(key);
+		cache.put(key, value);
+	}
+	
+}

@@ -1,0 +1,14 @@
+package chapter25;
+
+import java.lang.ref.WeakReference;
+
+public class WeakReferenceTest {
+
+	public static void main(String[] args) {
+		Reference ref = new Reference();
+		WeakReference<Reference> reference = new WeakReference<>(ref);
+		ref = null;
+		System.gc();
+	}
+
+}

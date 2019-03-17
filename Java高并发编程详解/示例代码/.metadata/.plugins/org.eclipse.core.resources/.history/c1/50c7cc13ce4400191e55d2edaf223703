@@ -1,0 +1,37 @@
+package chapter27;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
+public class ActiveServiceFactory {
+	//定义ActiveMessageQueue，用于存放ActiveMessage
+	private final static ActiveMessageQueue queue = new ActiveMessageQueue();
+	
+	public static <T> T active(T instance){
+		//生成Service代理类
+		Object proxy = Proxy.newProxyInstance(instance.getClass().getClassLoader(), instance.getClass().getInterfaces(), 
+				new ActiveInvocationHandler<>(instance));
+		return (T) proxy;
+	}
+
+	//ActiveInvocationHandler是InvocationHandler的子类，生成Proxy时需要用到
+	private static class ActiveInvocationHandler<T> implements InvocationHandler{
+		private final T instance;
+		
+		public ActiveInvocationHandler(T instance) {
+			this.instance = instance;
+		}
+		
+		@Override
+		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable{
+			if(method.isAnnotationPresent(ActiveMethod.class)){
+				//检查是否规范
+				
+				
+			}
+		}
+	}
+
+
+}	

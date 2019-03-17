@@ -1,0 +1,42 @@
+package chapter29;
+ 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+ 
+public  abstract  class AsyncChannel implements Channel<Event> {
+ 
+    private final ExecutorService executorService ;
+ 
+    // 使用ExecutorService 多线程的方式提交Message
+    public AsyncChannel(){
+        this(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()*2));
+    }
+ 
+    // 用户自定义ExecutorService
+    public AsyncChannel(ExecutorService executorService) {
+        this.executorService = executorService ;
+    }
+    // 重写dispatch方法 ， 并用final关键字修饰，避免子类重写
+    @Override
+    public final void  dispatch(Event message){
+        executorService.submit(() -> this.handle(message)) ;
+    }
+ 
+    // 提供抽象方法，供子类实现具体的Message处理
+    protected abstract void handle(Event message) ;
+ 
+    /**
+     * 提供关闭 executorService 方法
+     */
+    void stop(){
+        if(null != executorService && !executorService.isShutdown()){
+            executorService.shutdown();
+        }
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+}

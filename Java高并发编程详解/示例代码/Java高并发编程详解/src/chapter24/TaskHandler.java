@@ -1,0 +1,41 @@
+package chapter24;
+
+import java.util.concurrent.TimeUnit;
+ 
+import static java.util.concurrent.ThreadLocalRandom.current;
+ 
+ 
+public class TaskHandler implements  Runnable {
+ 
+	//处理每一个Request请求，因为需要开辟一个新线程处理，故实现Runnable接口
+    private final Request request ;
+ 
+    public TaskHandler(Request request){
+        this.request = request ;
+    }
+ 
+ 
+ 
+ 
+    @Override
+    public void run() {
+        System.out.println("Begin handle  : "+ request);
+ 
+ 
+        slowly();
+ 
+        System.out.println("End handle  : "+ request);
+    }
+ 
+ 
+ 
+    private void slowly() {
+ 
+        try {
+            TimeUnit.SECONDS.sleep(current().nextInt(10));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+ 
+}

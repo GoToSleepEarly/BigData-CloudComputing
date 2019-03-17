@@ -1,0 +1,27 @@
+package chapter27;
+
+import java.util.concurrent.TimeUnit;
+
+import chapter19.Future;
+import chapter19.FutureService;
+
+public class OrderServiceImpl implements OrderService{
+
+	@Override
+	public Future<String> findOrderDetails(long orderId) {
+		//使用Future来返回结果
+		return FutureService.newService().submit(input -> {
+			
+			//通过休眠方法来模拟该方法执行耗时
+			TimeUnit.SECONDS.sleep(10);
+			System.out.println("处理orderID "+ orderId);
+		},orderId, null);
+	}
+
+	@Override
+	public void order(String account, long orderId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
